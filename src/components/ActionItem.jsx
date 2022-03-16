@@ -2,20 +2,17 @@ import React from "react";
 import { useState } from "react";
 
 const ActionItem = (props) => {
-  const [a, setA] = useState("START");
+  const [strike, setStrike] = useState(false);
 
   const checkBoxHandler = (event) => {
-    if (a == "START") {
-      setA("END");
-    } else {
-      setA("START");
-    }
+      setStrike(!strike);
+
   };
 
   return (
     <form id="row">
-      <h1>{a}</h1>
-      <input type="text" id="textbox" value={props.text} />
+      <h1>{strike}</h1>
+      <input id={strike ? "text-strike" : "text-norm"} type="text" value={props.text} />
       <input
         type="checkbox"
         className="form-check-input"
