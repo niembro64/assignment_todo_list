@@ -6,13 +6,10 @@ import { useState } from "react";
 
 function App() {
   const [ai, setAi] = useState([
-    "ai1",
-    "ai2",
-    "ai3",
-    "ai4",
-    "ai5",
-    "ai6",
-    "ai7",
+    { text: "asdf0", check: false },
+    { text: "asdf1", check: true },
+    { text: "asdf2", check: true },
+    { text: "asdf3", check: false },
   ]);
 
   return (
@@ -28,7 +25,7 @@ function App() {
       </div>
       <div id="list">
         {ai.map((item, i) => {
-          return <ActionItem key={i} name={item} />;
+          return <ActionItem key={i} text={item.text} check={item.check}/>;
         })}
       </div>
     </div>
