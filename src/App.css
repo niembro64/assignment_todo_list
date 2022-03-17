@@ -34,7 +34,6 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-
 #list {
   width: 100%;
   text-align: center;
@@ -48,7 +47,7 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-#row{
+#row {
   width: 100%;
   border: 1px solid black;
   display: flex;
@@ -56,23 +55,29 @@
   align-items: center;
   justify-content: space-between;
   margin: 5px;
-  padding: 5px; 
+  padding: 5px;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-#text-norm{
+#text-norm {
   width: 80%;
   border: 1px solid black;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-#text-strike{
+#text-strike {
   width: 80%;
   text-decoration: line-through;
   border: 1px solid black;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-#row > button{
+#del_button {
   background-color: green;
+  margin: 5px;
+}
+
+#chk {
+  /* background-color: black; */
+  /* color: red; */
 }

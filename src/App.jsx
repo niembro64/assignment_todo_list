@@ -6,26 +6,52 @@ import { useState } from "react";
 
 function App() {
   const [ai, setAi] = useState([
-    { text: "asdf0", check: false },
-    { text: "asdf1", check: true },
-    { text: "asdf2", check: true },
-    { text: "asdf3", check: false },
+    { text: "Get MERN BlackBelt", check: false },
+    { text: "Spank my GF", check: true },
+    { text: "Buy a Monkey", check: false },
   ]);
+  const [form, setForm] = useState("");
+
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+
+    console.log(event);
+
+    const newState = [...ai, { text: "Ciao X", check: true }]; // text: form.target.value, check: false
+
+    setAi(newState);
+    setForm("");
+  };
+
+  const deleteAi = (index) =>{
+
+    console.log(index);
+  }
 
   return (
     <div className="App">
       <h1 id="title">To-Do List</h1>
       <div id="add">
-        <form>
-          <input type="text" />
-          <button className="btn btn-primary mx-4" type="submit">
-            Add
-          </button>
+        <form onSubmit={onSubmitHandler}>
+          <input
+            value={form}
+            id="text"
+            type="text"
+            onChange={(event) => {
+              setForm(event.target.value);
+            }}
+            placeholder="Type New Action Item"
+          />
+          <input
+            type="submit"
+            value="Add"
+            className="btn btn-primary btn-lg d-block mx-auto my-2"
+          />
         </form>
       </div>
       <div id="list">
         {ai.map((item, i) => {
-          return <ActionItem key={i} text={item.text} check={item.check}/>;
+          return <ActionItem deleteAi={()=>{deleteAi(i)}} index={i} key={i} text={item.text} check={item.check} />;
         })}
       </div>
     </div>

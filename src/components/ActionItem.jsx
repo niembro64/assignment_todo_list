@@ -5,24 +5,32 @@ const ActionItem = (props) => {
   const [strike, setStrike] = useState(false);
 
   const checkBoxHandler = (event) => {
-      setStrike(!strike);
-
+    setStrike(!strike);
   };
 
   return (
-    <form id="row">
-      <h1>{strike}</h1>
-      <input id={strike ? "text-strike" : "text-norm"} type="text" value={props.text} />
+    <div id="row">
+      <input
+        id={strike ? "text-strike" : "text-norm"}
+        type="text"
+        value={props.text}
+      />
       <input
         type="checkbox"
         className="form-check-input"
         onChange={checkBoxHandler}
+        id="chk"
       />
-      <h1>{props.check ? "X" : "O"}</h1>
-      <button className="btn btn-primary mx-4" type="submit">
+      <button
+        type="submit"
+        id="del_button"
+        value="Delete"
+        className="btn btn-primary btn-lg d-block mx-auto my-2"
+        onClick={props.deleteAi}
+      >
         Delete
       </button>
-    </form>
+    </div>
   );
 };
 
