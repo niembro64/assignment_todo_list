@@ -17,16 +17,16 @@ function App() {
 
     console.log(event);
 
-    const newState = [...ai, { text: "Ciao X", check: true }]; // text: form.target.value, check: false
+    const newState = [...ai, { text: form, check: true }]; 
+    // text: form.target.value, check: false
 
     setAi(newState);
     setForm("");
   };
 
-  const deleteAi = (index) =>{
-
+  const deleteAi = (index) => {
     console.log(index);
-  }
+  };
 
   return (
     <div className="App">
@@ -51,7 +51,17 @@ function App() {
       </div>
       <div id="list">
         {ai.map((item, i) => {
-          return <ActionItem deleteAi={()=>{deleteAi(i)}} index={i} key={i} text={item.text} check={item.check} />;
+          return (
+            <ActionItem
+              deleteAi={() => {
+                deleteAi(i);
+              }}
+              index={i}
+              key={i}
+              text={item.text}
+              check={item.check}
+            />
+          );
         })}
       </div>
     </div>
