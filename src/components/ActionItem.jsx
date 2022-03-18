@@ -5,21 +5,24 @@ const ActionItem = (props) => {
   const [strike, setStrike] = useState(false);
 
   const checkBoxHandler = (event) => {
-    setStrike(!strike);
+    props.preventDefault();
+    setStrike(props.check);
   };
 
   return (
     <div id="row">
-      <input
-        id={strike ? "text-strike" : "text-norm"}
-        type="text"
-        value={props.text}
-      />
+      <h3
+        onClick={props.clickAi}
+        id={props.check ? "text-strike" : "text-norm"}
+      >
+        {props.text}
+      </h3>
       <input
         type="checkbox"
         className="form-check-input"
-        onChange={checkBoxHandler}
         id="chk"
+        checked={props.check}
+        onClick={props.clickAi}
       />
       <button
         type="submit"

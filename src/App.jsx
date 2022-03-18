@@ -15,9 +15,9 @@ function App() {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
-    console.log(event);
+    // console.log(event);
 
-    const newState = [...ai, { text: form, check: true }]; 
+    const newState = [...ai, { text: form, check: false }];
     // text: form.target.value, check: false
 
     setAi(newState);
@@ -26,6 +26,30 @@ function App() {
 
   const deleteAi = (index) => {
     console.log(index);
+    console.log(ai[index]);
+    console.log(ai[index].text);
+
+    const newState = [...ai];
+    const newState2 = [];
+    for (var i = 0; i < newState.length; i++) {
+      if (i != index) {
+        newState2.push({ text: ai[i].text, check: ai[i].check });
+      }
+    }
+    setAi(newState2);
+  };
+
+  const clickAi = (index) => {
+    console.log(index);
+    console.log(ai[index]);
+    console.log(ai[index].text);
+
+    const newState = [...ai];
+    newState[index] = {
+      text: ai[index].text,
+      check: ai[index].check ? false : true,
+    };
+    setAi(newState);
   };
 
   return (
@@ -57,6 +81,9 @@ function App() {
                 deleteAi(i);
               }}
               index={i}
+              clickAi={() => {
+                clickAi(i);
+              }}
               key={i}
               text={item.text}
               check={item.check}
